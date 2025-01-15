@@ -15,10 +15,72 @@ dependencies = [
     "mypy>=1.14.1",
     "ruff>=0.9.1",
     "django-stubs>=5.1.2",
+    "pyright>=1.1.391",
 ]
 
-[tool.ruff]
-# Enable Pyflakes `E` and `F` codes by default.
-select = ["E", "F"]
-ignore = ["E501", "E741"] 
 
+
+[tool.black]
+target-version = ["py312"]
+
+
+[tool.ruff]
+line-length = 120
+lint.select = ["E", "F"]
+lint.ignore = ["E501", "E741"] 
+exclude = [".bzr", ".direnv", ".eggs", ".git", ".hg", ".mypy_cache", ".nox", ".pants.d", ".ruff_cache", ".svn", ".tox", ".venv", "__pypackages__", "_build", "buck-out", "build", "dist", "node_modules", "venv"]
+
+
+[tool.vulture]
+exclude = [
+  "*/settings.py",
+  "*/settings/*.py",
+  "*/migrations/*.py",
+]
+
+ignore_decorators = [
+  "@receiver",
+  "@register.filter",
+  "@register.inclusion_tag",
+  "@register.simple_tag",
+  "@admin.action",
+  "@admin.display",
+  "@admin.register",
+  "@pytest.fixture",
+]
+
+ignore_names = [
+  "*Config",  
+  "clean_*",
+  "variable_*",
+  "Meta",
+  "urlpatterns",
+  "args",
+  "get_extra",
+  "get_fieldsets",
+  "has_add_permission",
+  "has_change_permission",
+  "has_delete_permission",
+  "has_view_permission",
+  "lookups",
+  "variable",
+  "kwargs",
+  "request"
+]
+
+paths = [
+    "apps"
+]
+
+
+[tool.pyright]
+exclude = [
+    "**/__pycache__",
+    "**/snap_test_*.py",
+    ".venv/",
+    "**/migrations/*.py",
+]
+reportMissingImports = true
+reportMissingTypeStubs = false
+venvPath = "."
+venv = ".venv"

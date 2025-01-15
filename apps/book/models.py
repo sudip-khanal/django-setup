@@ -1,7 +1,8 @@
 from django.db import models
 
-
 # Create your models here.
+
+
 class Author(models.Model):
     full_name = models.CharField(max_length=100)
     email = models.EmailField()
@@ -14,6 +15,7 @@ class Author(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
+
     description = models.TextField()
 
     def __str__(self):
@@ -26,6 +28,7 @@ class Book(models.Model):
     categories = models.ManyToManyField(Category, related_name="books")
     description = models.TextField()
     isbn = models.CharField(max_length=13, unique=True)
+
     publication_date = models.DateField()
 
     def __str__(self):

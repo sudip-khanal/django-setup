@@ -15,9 +15,7 @@ import os
 import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-PROJECT_DIR = os.path.dirname(
-    os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-)
+PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 ROOT_DIR = os.path.dirname(PROJECT_DIR)
 
