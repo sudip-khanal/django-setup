@@ -68,6 +68,8 @@ paths = [
 
 
 [tool.pyright]
+venvPath = "."
+venv = ".venv"
 exclude = [
     "**/__pycache__",
     "**/snap_test_*.py",
@@ -76,8 +78,6 @@ exclude = [
 ]
 reportMissingImports = true
 reportMissingTypeStubs = false
-venvPath = "."
-venv = ".venv"
 
 
 [tool.ruff]
