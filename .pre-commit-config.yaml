@@ -1,5 +1,17 @@
-repos:
+default_language_version:
+  python: python3
 
+# NOTE: Update in .flake8 pyproject.toml as well
+exclude: |
+    (?x)^(
+      \.git|
+      __pycache__|
+      .+\/.+\/migrations\/.*|
+      legacy|
+      \.venv
+    )
+
+repos:
   - repo: https://github.com/PyCQA/isort
     rev: 5.13.2
     hooks:
