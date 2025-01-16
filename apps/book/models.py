@@ -7,6 +7,7 @@ class Author(models.Model):
     full_name = models.CharField(max_length=100)
     email = models.EmailField()
     phone = models.CharField(max_length=15)
+
     address = models.TextField()
 
     def __str__(self):
@@ -26,6 +27,7 @@ class Book(models.Model):
     title = models.CharField(max_length=255)
     author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name="books")
     categories = models.ManyToManyField(Category, related_name="books")
+
     description = models.TextField()
     isbn = models.CharField(max_length=13, unique=True)
 
