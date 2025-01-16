@@ -13,11 +13,19 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
+      # Install the latest version of uv
       - name: Install the latest version of uv 
         uses: astral-sh/setup-uv@v5
 
-      - name: Install pre-commit hooks
-        run: pre-commit install  
+      # Install `pre-commit` in the `uv` virtual environment
+      - name: Install pre-commit
+        run: uv run pip install pre-commit
 
+      # Install pre-commit hooks
+      - name: Install pre-commit hooks
+        run: uv run pre-commit install  
+
+      # Run pre-commit hooks on all files
       - name: Run pre-commit hooks
         run: uv run pre-commit run --all-files  
