@@ -76,7 +76,7 @@ exclude = [
     ".venv/",
     "**/migrations/*.py",
 ]
-reportMissingImports = true
+reportMissingImports = false
 reportMissingTypeStubs = false
 
 

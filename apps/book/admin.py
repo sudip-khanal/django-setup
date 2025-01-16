@@ -2,8 +2,6 @@ from django.contrib import admin
 
 from apps.book.models import Author, Book, Category
 
-# Register your models here.
-
 
 class BookAdmin(admin.ModelAdmin):
     list_display = ["title", "author", "isbn", "publication_date"]
