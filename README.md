@@ -1,2 +1,1 @@
-This repo contains a basic Django setup for getting started with a new project.
-It includes initial settings for environment variables, database configuration, and project structure.
+This is a basic Django configuration setup designed to quickly start a new Django project. It includes initial settings for environment variables, database configuration, static files, and project structure.
