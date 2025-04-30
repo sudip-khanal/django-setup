@@ -1,0 +1,48 @@
+default_language_version:
+  python: python3
+
+# NOTE: Update in .flake8 pyproject.toml as well
+exclude: |
+    (?x)^(
+      \.git|
+      __pycache__|
+      .+\/.+\/migrations\/.*|
+      legacy|
+      \.venv
+    )
+
+repos:
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.13.2
+    hooks:
+      - id: isort
+        # args: ["--check"]
+
+  - repo: https://github.com/PyCQA/flake8
+    rev: 7.1.1
+    hooks:
+      - id: flake8
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.9.1
+    hooks:
+      # Run the linter.
+      - id: ruff
+        args: [ --fix ]
+      # Run the formatter.
+      - id: ruff-format
+        types_or: [ python, pyi ]
+
+
+
+  - repo: https://github.com/jendrikseipp/vulture
+    rev: 'v2.3'  
+    hooks:
+      - id: vulture
+        args: ['--min-confidence', '80']
+
+
+  - repo: https://github.com/RobertCraigie/pyright-python
+    rev: v1.1.392
+    hooks:
+    - id: pyright
